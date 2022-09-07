@@ -9,6 +9,9 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
   contracts_build_directory: "../client/src/contracts",
+  api_keys: {
+    etherscan: etherscanApiKey
+  },
   networks: {
     development: {
       host: "127.0.0.1",     // Localhost (default: none)
@@ -16,7 +19,7 @@ module.exports = {
       network_id: "*",       // Any network (default: none)
     },
     moonbase: {
-      provider: () => new HDWalletProvider(admin, moonbaseUrl),
+      provider: () => new HDWalletProvider(adminPrivKey, moonbaseUrl),
       network_id: 1287,       // Goerli's network id
       chain_id: 1287,         // Goerli's chain id
       gas: 5500000,        // Gas limit used for deploys.
